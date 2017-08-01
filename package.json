@@ -1,0 +1,22 @@
+{
+  "name": "jsgis",
+  "version": "1.0.0",
+  "description": "Javascript GIS framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mihkel Oviir",
+  "license": "MIT",
+  "devDependencies": {
+    "jspm": "^0.16.53",
+    "live-server": "^1.2.0"
+  },
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
