@@ -1,22 +1,38 @@
 {
   "name": "jsgis",
   "version": "1.0.0",
-  "description": "Javascript GIS framework",
+  "description": "JsGIS web-GIS framework",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sookoll/jsgis.git"
+  },
   "author": "Mihkel Oviir",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sookoll/jsgis/issues"
+  },
+  "homepage": "https://github.com/sookoll/jsgis#readme",
   "devDependencies": {
-    "jspm": "^0.16.53",
+    "jspm": "^0.17.0-beta.42",
     "live-server": "^1.2.0"
   },
   "jspm": {
+    "name": "jsgis",
+    "main": "main.js",
+    "dependencies": {
+      "css": "github:systemjs/plugin-css@^0.1.35"
+    },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
+      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
+      "babel-plugin-wildcard": "npm:babel-plugin-wildcard@^2.1.2",
+      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "path": "npm:jspm-nodelibs-path@^0.2.0",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.25",
+      "process": "npm:jspm-nodelibs-process@^0.2.0"
     }
   }
 }
