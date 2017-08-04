@@ -6,16 +6,12 @@
 
 import ol from 'openlayers';
 import 'openlayers/css/ol.css!';
+import './map.css!';
 
 class Map {
-  constructor (container) {
-    this.setContainer(container)
-  }
-  setContainer (container) {
-    this.container = container
-  }
-  getContainer () {
-    return this.container
+  constructor () {
+    this.el = document.createElement('div');
+    this.el.id = 'map';
   }
   setMap (map) {
     this.map = map
@@ -23,11 +19,10 @@ class Map {
   getMap () {
     return this.map
   }
-  init () {
-    const el = document.createElement('div');
-    this.getContainer().appendChild(el);
+  init (jsgis) {
+    jsgis.getEl().appendChild(this.el);
     const map = new ol.Map({
-      target: el,
+      target: this.el,
       layers: [],
       controls: [],
       view: new ol.View({
@@ -38,7 +33,15 @@ class Map {
     });
     this.setMap(map)
   }
-
+  addControl(control) {
+    this.map.addControl(control);
+  }
+  getMapProjection() {
+    return this.map.getView().getProjection()
+  }
+  setMapView(view) {
+    this.map.setView(view)
+  }
 }
 
 export default Map;

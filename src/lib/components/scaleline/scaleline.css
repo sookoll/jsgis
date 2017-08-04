@@ -1,0 +1,12 @@
+#scaleline {
+  float: right;
+  padding: 6px
+}
+#scaleline .ol-scale-line {
+  background: none;
+  border-radius: 0px;
+  bottom: 0px;
+  left: 0px;
+  padding: 0px;
+  position: relative;
+}

@@ -1,0 +1,10 @@
+#mouseposition {
+  padding: 6px;
+  color: white;
+}
+#mouseposition .ol-mouse-position {
+    top: 0px;
+    right: auto;
+    position: relative;
+    font-size: 0.9em
+}

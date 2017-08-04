@@ -1,10 +1,15 @@
 {
   "name": "jsgis",
-  "version": "1.0.0",
-  "description": "JsGIS web-GIS framework",
+  "version": "0.1.0",
+  "description": "JsGIS web-GIS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "rm -f src/build.* src/lib/components.js",
+    "components": "bash scripts/build_components.sh src/lib components",
+    "compile": "jspm bundle src/main.js src/build.js -id",
+    "build": "npm run clear && npm run components && npm run compile",
+    "serve": "jspm-server --port=8081 --no-browser --open=src"
   },
   "repository": {
     "type": "git",
@@ -18,20 +23,24 @@
   "homepage": "https://github.com/sookoll/jsgis#readme",
   "devDependencies": {
     "jspm": "^0.17.0-beta.42",
-    "live-server": "^1.2.0"
+    "jspm-server": "^1.0.1"
   },
   "jspm": {
     "name": "jsgis",
-    "main": "main.js",
+    "main": "jsgis.js",
     "dependencies": {
-      "css": "github:systemjs/plugin-css@^0.1.35"
+      "css": "github:systemjs/plugin-css@^0.1.35",
+      "hbs": "github:davis/plugin-hbs@^1.2.3",
+      "proj4": "npm:proj4@^2.4.3"
     },
     "devDependencies": {
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
       "babel-plugin-wildcard": "npm:babel-plugin-wildcard@^2.1.2",
       "fs": "npm:jspm-nodelibs-fs@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.25",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.25"
+    },
+    "peerDependencies": {
       "process": "npm:jspm-nodelibs-process@^0.2.0"
     }
   }
