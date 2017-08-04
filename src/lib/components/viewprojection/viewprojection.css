@@ -1,3 +1,7 @@
 #viewprojection {
-  padding: 6px
+  padding: 6px;
+  color: white
+}
+#viewprojection input {
+  width: 60px
 }

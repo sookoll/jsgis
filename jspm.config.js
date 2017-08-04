@@ -53,16 +53,45 @@ SystemJS.config({
         "jsgis/lib/map.css!github:systemjs/plugin-css@0.1.35/css.js",
         "npm:openlayers@4.2.0/css/ol.css!github:systemjs/plugin-css@0.1.35/css.js",
         "jsgis/lib/ui.js"
+      ],
+      "jsgis/build.vendor.js": [
+        "npm:proj4@2.4.3/dist/proj4-src.js",
+        "npm:proj4@2.4.3.json",
+        "npm:jspm-nodelibs-process@0.2.1/process.js",
+        "npm:jspm-nodelibs-process@0.2.1.json",
+        "npm:openlayers@4.2.0/dist/ol.js",
+        "npm:openlayers@4.2.0.json"
+      ],
+      "jsgis/build.jsgis.js": [
+        "jsgis/main.js",
+        "jsgis/lib/jsgis.js",
+        "jsgis/lib/components.js",
+        "jsgis/lib/components/viewprojection/viewprojection.js",
+        "jsgis/lib/components/viewprojection/template.hbs!github:davis/plugin-hbs@1.2.3/hbs.js",
+        "github:components/handlebars.js@4.0.10/handlebars.runtime.js",
+        "github:components/handlebars.js@4.0.10.json",
+        "github:davis/plugin-hbs@1.2.3.json",
+        "jsgis/lib/components/viewprojection/viewprojection.css!github:systemjs/plugin-css@0.1.35/css.js",
+        "github:systemjs/plugin-css@0.1.35.json",
+        "npm:systemjs-plugin-babel@0.0.25/babel-helpers/createClass.js",
+        "npm:systemjs-plugin-babel@0.0.25.json",
+        "npm:systemjs-plugin-babel@0.0.25/babel-helpers/classCallCheck.js",
+        "jsgis/lib/components/statusbar/statusbar.js",
+        "jsgis/lib/components/statusbar/statusbar.css!github:systemjs/plugin-css@0.1.35/css.js",
+        "jsgis/lib/components/scaleline/scaleline.js",
+        "jsgis/lib/components/scaleline/scaleline.css!github:systemjs/plugin-css@0.1.35/css.js",
+        "jsgis/lib/components/mouseposition/mouseposition.js",
+        "jsgis/lib/components/mouseposition/mouseposition.css!github:systemjs/plugin-css@0.1.35/css.js",
+        "jsgis/lib/map.js",
+        "jsgis/lib/map.css!github:systemjs/plugin-css@0.1.35/css.js",
+        "npm:openlayers@4.2.0/css/ol.css!github:systemjs/plugin-css@0.1.35/css.js",
+        "jsgis/lib/ui.js"
       ]
     }
   },
   devConfig: {
     "map": {
-      "plugin-babel": "npm:systemjs-plugin-babel@0.0.25",
-      "babel-plugin-wildcard": "npm:babel-plugin-wildcard@2.1.2",
-      "assert": "npm:jspm-nodelibs-assert@0.2.1",
-      "fs": "npm:jspm-nodelibs-fs@0.2.1",
-      "path": "npm:jspm-nodelibs-path@0.2.3"
+      "plugin-babel": "npm:systemjs-plugin-babel@0.0.25"
     }
   },
   transpiler: "plugin-babel",
@@ -75,6 +104,94 @@ SystemJS.config({
         }
       }
     },
+    "npm:uglify-js@2.8.29": {
+      "map": {
+        "source-map": "npm:source-map@0.5.6",
+        "yargs": "npm:yargs@3.10.0"
+      }
+    },
+    "npm:yargs@3.10.0": {
+      "map": {
+        "decamelize": "npm:decamelize@1.2.0",
+        "window-size": "npm:window-size@0.1.0",
+        "cliui": "npm:cliui@2.1.0",
+        "camelcase": "npm:camelcase@1.2.1"
+      }
+    },
+    "npm:cliui@2.1.0": {
+      "map": {
+        "wordwrap": "npm:wordwrap@0.0.2",
+        "right-align": "npm:right-align@0.1.3",
+        "center-align": "npm:center-align@0.1.3"
+      }
+    },
+    "npm:right-align@0.1.3": {
+      "map": {
+        "align-text": "npm:align-text@0.1.4"
+      }
+    },
+    "npm:center-align@0.1.3": {
+      "map": {
+        "align-text": "npm:align-text@0.1.4",
+        "lazy-cache": "npm:lazy-cache@1.0.4"
+      }
+    },
+    "npm:align-text@0.1.4": {
+      "map": {
+        "kind-of": "npm:kind-of@3.2.2",
+        "longest": "npm:longest@1.0.1",
+        "repeat-string": "npm:repeat-string@1.6.1"
+      }
+    }
+  },
+  map: {
+    "tty": "npm:jspm-nodelibs-tty@0.2.1",
+    "uglify-js": "npm:uglify-js@2.8.29",
+    "uglify-to-browserify": "npm:uglify-to-browserify@1.0.2"
+  }
+});
+
+SystemJS.config({
+  packageConfigPaths: [
+    "npm:@*/*.json",
+    "npm:*.json",
+    "github:*/*.json"
+  ],
+  map: {
+    "assert": "npm:jspm-nodelibs-assert@0.2.1",
+    "buffer": "npm:jspm-nodelibs-buffer@0.2.3",
+    "child_process": "npm:jspm-nodelibs-child_process@0.2.1",
+    "constants": "npm:jspm-nodelibs-constants@0.2.1",
+    "crypto": "npm:jspm-nodelibs-crypto@0.2.1",
+    "dgram": "npm:jspm-nodelibs-dgram@0.2.1",
+    "dns": "npm:jspm-nodelibs-dns@0.2.1",
+    "events": "npm:jspm-nodelibs-events@0.2.2",
+    "fs": "npm:jspm-nodelibs-fs@0.2.1",
+    "graceful-fs": "npm:graceful-fs@4.1.11",
+    "http": "npm:jspm-nodelibs-http@0.2.0",
+    "https": "npm:jspm-nodelibs-https@0.2.2",
+    "module": "npm:jspm-nodelibs-module@0.2.1",
+    "net": "npm:jspm-nodelibs-net@0.2.1",
+    "openlayers": "npm:openlayers@4.2.0",
+    "os": "npm:jspm-nodelibs-os@0.2.2",
+    "path": "npm:jspm-nodelibs-path@0.2.3",
+    "querystring": "npm:jspm-nodelibs-querystring@0.2.2",
+    "repl": "npm:jspm-nodelibs-repl@0.2.1",
+    "stream": "npm:jspm-nodelibs-stream@0.2.1",
+    "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",
+    "timers": "npm:jspm-nodelibs-timers@0.2.1",
+    "tls": "npm:jspm-nodelibs-tls@0.2.1",
+    "url": "npm:jspm-nodelibs-url@0.2.1",
+    "util": "npm:jspm-nodelibs-util@0.2.2",
+    "uws": "npm:uws@0.14.5",
+    "vm": "npm:jspm-nodelibs-vm@0.2.1",
+    "zlib": "npm:jspm-nodelibs-zlib@0.2.3",
+    "process": "npm:jspm-nodelibs-process@0.2.1",
+    "proj4": "npm:proj4@2.4.3",
+    "hbs": "github:davis/plugin-hbs@1.2.3",
+    "css": "github:systemjs/plugin-css@0.1.35"
+  },
+  packages: {
     "npm:openlayers@4.2.0": {
       "map": {
         "marked": "npm:marked@0.3.6",
@@ -179,12 +296,6 @@ SystemJS.config({
     "npm:async@2.4.1": {
       "map": {
         "lodash": "npm:lodash@4.17.4"
-      }
-    },
-    "npm:uglify-js@2.8.29": {
-      "map": {
-        "source-map": "npm:source-map@0.5.6",
-        "yargs": "npm:yargs@3.10.0"
       }
     },
     "npm:fs-extra@3.0.1": {
@@ -507,14 +618,6 @@ SystemJS.config({
         "camelcase": "npm:camelcase@3.0.0"
       }
     },
-    "npm:yargs@3.10.0": {
-      "map": {
-        "decamelize": "npm:decamelize@1.2.0",
-        "window-size": "npm:window-size@0.1.0",
-        "cliui": "npm:cliui@2.1.0",
-        "camelcase": "npm:camelcase@1.2.1"
-      }
-    },
     "npm:rollup@0.42.0": {
       "map": {
         "source-map-support": "npm:source-map-support@0.4.15"
@@ -656,13 +759,6 @@ SystemJS.config({
         "string-width": "npm:string-width@1.0.2",
         "strip-ansi": "npm:strip-ansi@3.0.1",
         "wrap-ansi": "npm:wrap-ansi@2.1.0"
-      }
-    },
-    "npm:cliui@2.1.0": {
-      "map": {
-        "wordwrap": "npm:wordwrap@0.0.2",
-        "right-align": "npm:right-align@0.1.3",
-        "center-align": "npm:center-align@0.1.3"
       }
     },
     "npm:readable-stream@1.1.14": {
@@ -999,17 +1095,6 @@ SystemJS.config({
         "pinkie-promise": "npm:pinkie-promise@2.0.1"
       }
     },
-    "npm:right-align@0.1.3": {
-      "map": {
-        "align-text": "npm:align-text@0.1.4"
-      }
-    },
-    "npm:center-align@0.1.3": {
-      "map": {
-        "align-text": "npm:align-text@0.1.4",
-        "lazy-cache": "npm:lazy-cache@1.0.4"
-      }
-    },
     "npm:fstream@1.0.11": {
       "map": {
         "rimraf": "npm:rimraf@2.6.1",
@@ -1058,13 +1143,6 @@ SystemJS.config({
     "npm:expand-brackets@0.1.5": {
       "map": {
         "is-posix-bracket": "npm:is-posix-bracket@0.1.1"
-      }
-    },
-    "npm:align-text@0.1.4": {
-      "map": {
-        "kind-of": "npm:kind-of@3.2.2",
-        "longest": "npm:longest@1.0.1",
-        "repeat-string": "npm:repeat-string@1.6.1"
       }
     },
     "npm:brace-expansion@1.1.8": {
@@ -1601,62 +1679,7 @@ SystemJS.config({
         "inherits": "npm:inherits@2.0.3",
         "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
       }
-    }
-  },
-  meta: {
-    "*.js": {
-      "babelOptions": {
-        "plugins": [
-          "babel-plugin-wildcard"
-        ]
-      }
-    }
-  },
-  map: {
-    "buffer": "npm:jspm-nodelibs-buffer@0.2.3",
-    "child_process": "npm:jspm-nodelibs-child_process@0.2.1",
-    "constants": "npm:jspm-nodelibs-constants@0.2.1",
-    "crypto": "npm:jspm-nodelibs-crypto@0.2.1",
-    "dgram": "npm:jspm-nodelibs-dgram@0.2.1",
-    "dns": "npm:jspm-nodelibs-dns@0.2.1",
-    "events": "npm:jspm-nodelibs-events@0.2.2",
-    "graceful-fs": "npm:graceful-fs@4.1.11",
-    "http": "npm:jspm-nodelibs-http@0.2.0",
-    "https": "npm:jspm-nodelibs-https@0.2.2",
-    "module": "npm:jspm-nodelibs-module@0.2.1",
-    "net": "npm:jspm-nodelibs-net@0.2.1",
-    "openlayers": "npm:openlayers@4.2.0",
-    "os": "npm:jspm-nodelibs-os@0.2.2",
-    "querystring": "npm:jspm-nodelibs-querystring@0.2.2",
-    "repl": "npm:jspm-nodelibs-repl@0.2.1",
-    "stream": "npm:jspm-nodelibs-stream@0.2.1",
-    "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",
-    "timers": "npm:jspm-nodelibs-timers@0.2.1",
-    "tls": "npm:jspm-nodelibs-tls@0.2.1",
-    "tty": "npm:jspm-nodelibs-tty@0.2.1",
-    "uglify-js": "npm:uglify-js@2.8.29",
-    "uglify-to-browserify": "npm:uglify-to-browserify@1.0.2",
-    "url": "npm:jspm-nodelibs-url@0.2.1",
-    "util": "npm:jspm-nodelibs-util@0.2.2",
-    "uws": "npm:uws@0.14.5",
-    "vm": "npm:jspm-nodelibs-vm@0.2.1",
-    "zlib": "npm:jspm-nodelibs-zlib@0.2.3"
-  }
-});
-
-SystemJS.config({
-  packageConfigPaths: [
-    "npm:@*/*.json",
-    "npm:*.json",
-    "github:*/*.json"
-  ],
-  map: {
-    "process": "npm:jspm-nodelibs-process@0.2.1",
-    "proj4": "npm:proj4@2.4.3",
-    "hbs": "github:davis/plugin-hbs@1.2.3",
-    "css": "github:systemjs/plugin-css@0.1.35"
-  },
-  packages: {
+    },
     "github:davis/plugin-hbs@1.2.3": {
       "map": {
         "handlebars": "github:components/handlebars.js@4.0.10"

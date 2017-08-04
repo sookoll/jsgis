@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clear": "rm -f src/build.* src/lib/components.js",
+    "clear": "rm -f src/build.jsgis* src/lib/components.js",
+    "dep_compile": "jspm bundle openlayers + proj4 src/build.vendor.js --skip-source-maps -id",
     "components": "bash scripts/build_components.sh src/lib components",
-    "compile": "jspm bundle src/main.js src/build.js -id",
+    "compile": "jspm bundle src/main.js - openlayers - proj4 src/build.jsgis.js --skip-source-maps -id",
     "build": "npm run clear && npm run components && npm run compile",
     "serve": "jspm-server --port=8081 --no-browser --open=src"
   },
@@ -31,17 +32,167 @@
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.35",
       "hbs": "github:davis/plugin-hbs@^1.2.3",
+      "openlayers": "npm:openlayers@^4.2.0",
       "proj4": "npm:proj4@^2.4.3"
     },
     "devDependencies": {
-      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
-      "babel-plugin-wildcard": "npm:babel-plugin-wildcard@^2.1.2",
-      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
-      "path": "npm:jspm-nodelibs-path@^0.2.0",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.25"
     },
     "peerDependencies": {
-      "process": "npm:jspm-nodelibs-process@^0.2.0"
+      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
+      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
+      "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
+      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
+      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
+      "dgram": "npm:jspm-nodelibs-dgram@^0.2.0",
+      "dns": "npm:jspm-nodelibs-dns@^0.2.0",
+      "events": "npm:jspm-nodelibs-events@^0.2.0",
+      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "graceful-fs": "npm:graceful-fs@^4.1.9",
+      "http": "npm:jspm-nodelibs-http@^0.2.0",
+      "https": "npm:jspm-nodelibs-https@^0.2.0",
+      "module": "npm:jspm-nodelibs-module@^0.2.0",
+      "net": "npm:jspm-nodelibs-net@^0.2.0",
+      "os": "npm:jspm-nodelibs-os@^0.2.0",
+      "path": "npm:jspm-nodelibs-path@^0.2.0",
+      "process": "npm:jspm-nodelibs-process@^0.2.0",
+      "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
+      "repl": "npm:jspm-nodelibs-repl@^0.2.0",
+      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
+      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
+      "timers": "npm:jspm-nodelibs-timers@^0.2.0",
+      "tls": "npm:jspm-nodelibs-tls@^0.2.0",
+      "url": "npm:jspm-nodelibs-url@^0.2.0",
+      "util": "npm:jspm-nodelibs-util@^0.2.0",
+      "uws": "npm:uws@~0.14.4",
+      "vm": "npm:jspm-nodelibs-vm@^0.2.0",
+      "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
+    },
+    "overrides": {
+      "npm:bluebird@3.4.7": {
+        "meta": {
+          "js/browser/bluebird.js": {
+            "format": "global"
+          },
+          "js/browser/bluebird.min.js": {
+            "format": "global"
+          }
+        }
+      },
+      "npm:bluebird@3.5.0": {
+        "meta": {
+          "js/browser/bluebird.js": {
+            "format": "global"
+          },
+          "js/browser/bluebird.min.js": {
+            "format": "global"
+          }
+        }
+      },
+      "npm:browserify-zlib@0.1.4": {
+        "dependencies": {
+          "readable-stream": "^2.0.2",
+          "pako": "~0.2.0"
+        },
+        "map": {
+          "_stream_transform": "readable-stream/transform"
+        }
+      },
+      "npm:coffee-script@1.12.7": {
+        "map": {
+          "child_process": "@empty"
+        }
+      },
+      "npm:debug@2.6.4": {
+        "main": "src/browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./src/browser.js": {
+            "node": "./src/node.js"
+          },
+          "./node.js": {
+            "browser": "./src/browser.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
+      "npm:debug@2.6.7": {
+        "main": "src/browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./src/browser.js": {
+            "node": "./src/node.js"
+          },
+          "./node.js": {
+            "browser": "./src/browser.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
+      "npm:debug@2.6.8": {
+        "main": "src/browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./src/browser.js": {
+            "node": "./src/node.js"
+          },
+          "./node.js": {
+            "browser": "./src/browser.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
+      "npm:inherits@2.0.3": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:lodash@4.17.4": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:ms@0.7.3": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
+      },
+      "npm:pbkdf2@3.0.13": {
+        "main": "browser.js"
+      },
+      "npm:readable-stream@1.1.14": {
+        "map": {
+          "stream": "stream-browserify/index"
+        },
+        "systemjs": {
+          "main": "readable.js"
+        },
+        "dependencies": {
+          "core-util-is": "~1.0.0",
+          "inherits": "~2.0.1",
+          "isarray": "0.0.1",
+          "string_decoder": "~0.10.0",
+          "stream-browserify": "^1.0.0"
+        }
+      },
+      "npm:safe-buffer@5.0.1": {
+        "browser": "index.js"
+      },
+      "npm:safe-buffer@5.1.1": {
+        "browser": "index.js"
+      }
     }
   }
 }
