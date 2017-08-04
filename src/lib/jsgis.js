@@ -10,10 +10,10 @@ import * as Components from 'jsgis/lib/components';
 class JsGIS {
   constructor () {
     this.components = {};
-    this.setEl(document.querySelector('#container'));
+    this.setEl(document.querySelector('.jsgis-layout'));
   }
   init () {
-    this.ui = new Ui();
+    this.ui = Ui;
     this.map = new Map();
     this.map.init(this);
     this.initComponents();

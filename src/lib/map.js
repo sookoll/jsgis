@@ -20,7 +20,7 @@ class Map {
     return this.map
   }
   init (jsgis) {
-    jsgis.getEl().appendChild(this.el);
+    jsgis.getEl().querySelector('main').appendChild(this.el);
     const map = new ol.Map({
       target: this.el,
       layers: [],

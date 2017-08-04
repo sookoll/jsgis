@@ -9,6 +9,12 @@ class Ui {
 
   }
 
+  el (string) {
+    const template = document.createElement('template');
+    template.innerHTML = string;
+    return template.content.firstChild;
+  }
+
 }
 
-export default Ui;
+export default new Ui();
