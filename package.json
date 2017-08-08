@@ -33,7 +33,9 @@
       "css": "github:systemjs/plugin-css@^0.1.35",
       "hbs": "github:davis/plugin-hbs@^1.2.3",
       "openlayers": "npm:openlayers@^4.2.0",
-      "proj4": "npm:proj4@^2.4.3"
+      "proj4": "npm:proj4@^2.4.3",
+      "text": "github:systemjs/plugin-text@^0.0.11",
+      "yamljs": "npm:yamljs@^0.3.0"
     },
     "devDependencies": {
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.25"
@@ -62,6 +64,9 @@
       "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
       "timers": "npm:jspm-nodelibs-timers@^0.2.0",
       "tls": "npm:jspm-nodelibs-tls@^0.2.0",
+      "tty": "npm:jspm-nodelibs-tty@^0.2.0",
+      "uglify-js": "npm:uglify-js@^2.6",
+      "uglify-to-browserify": "npm:uglify-to-browserify@1.0",
       "url": "npm:jspm-nodelibs-url@^0.2.0",
       "util": "npm:jspm-nodelibs-util@^0.2.0",
       "uws": "npm:uws@~0.14.4",

@@ -3,6 +3,7 @@
  *
  * @author Mihkel Oviir
  */
+
 import Ui from 'jsgis/lib/ui';
 import Map from 'jsgis/lib/map';
 import * as Components from 'jsgis/lib/components';

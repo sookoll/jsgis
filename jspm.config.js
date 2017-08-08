@@ -105,7 +105,56 @@ SystemJS.config({
           "loader": "plugin-babel"
         }
       }
-    },
+    }
+  }
+});
+
+SystemJS.config({
+  packageConfigPaths: [
+    "npm:@*/*.json",
+    "npm:*.json",
+    "github:*/*.json"
+  ],
+  map: {
+    "text": "github:systemjs/plugin-text@0.0.11",
+    "tty": "npm:jspm-nodelibs-tty@0.2.1",
+    "uglify-js": "npm:uglify-js@2.8.29",
+    "uglify-to-browserify": "npm:uglify-to-browserify@1.0.2",
+    "assert": "npm:jspm-nodelibs-assert@0.2.1",
+    "buffer": "npm:jspm-nodelibs-buffer@0.2.3",
+    "child_process": "npm:jspm-nodelibs-child_process@0.2.1",
+    "constants": "npm:jspm-nodelibs-constants@0.2.1",
+    "crypto": "npm:jspm-nodelibs-crypto@0.2.1",
+    "dgram": "npm:jspm-nodelibs-dgram@0.2.1",
+    "dns": "npm:jspm-nodelibs-dns@0.2.1",
+    "events": "npm:jspm-nodelibs-events@0.2.2",
+    "fs": "npm:jspm-nodelibs-fs@0.2.1",
+    "graceful-fs": "npm:graceful-fs@4.1.11",
+    "http": "npm:jspm-nodelibs-http@0.2.0",
+    "https": "npm:jspm-nodelibs-https@0.2.2",
+    "module": "npm:jspm-nodelibs-module@0.2.1",
+    "net": "npm:jspm-nodelibs-net@0.2.1",
+    "openlayers": "npm:openlayers@4.2.0",
+    "os": "npm:jspm-nodelibs-os@0.2.2",
+    "path": "npm:jspm-nodelibs-path@0.2.3",
+    "querystring": "npm:jspm-nodelibs-querystring@0.2.2",
+    "repl": "npm:jspm-nodelibs-repl@0.2.1",
+    "stream": "npm:jspm-nodelibs-stream@0.2.1",
+    "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",
+    "timers": "npm:jspm-nodelibs-timers@0.2.1",
+    "tls": "npm:jspm-nodelibs-tls@0.2.1",
+    "url": "npm:jspm-nodelibs-url@0.2.1",
+    "util": "npm:jspm-nodelibs-util@0.2.2",
+    "uws": "npm:uws@0.14.5",
+    "vm": "npm:jspm-nodelibs-vm@0.2.1",
+    "yamljs": "npm:yamljs@0.3.0",
+    "zlib": "npm:jspm-nodelibs-zlib@0.2.3",
+    "process": "npm:jspm-nodelibs-process@0.2.1",
+    "proj4": "npm:proj4@2.4.3",
+    "hbs": "github:davis/plugin-hbs@1.2.3",
+    "css": "github:systemjs/plugin-css@0.1.35"
+  },
+  packages: {
     "npm:uglify-js@2.8.29": {
       "map": {
         "source-map": "npm:source-map@0.5.6",
@@ -144,56 +193,7 @@ SystemJS.config({
         "longest": "npm:longest@1.0.1",
         "repeat-string": "npm:repeat-string@1.6.1"
       }
-    }
-  },
-  map: {
-    "tty": "npm:jspm-nodelibs-tty@0.2.1",
-    "uglify-js": "npm:uglify-js@2.8.29",
-    "uglify-to-browserify": "npm:uglify-to-browserify@1.0.2"
-  }
-});
-
-SystemJS.config({
-  packageConfigPaths: [
-    "npm:@*/*.json",
-    "npm:*.json",
-    "github:*/*.json"
-  ],
-  map: {
-    "assert": "npm:jspm-nodelibs-assert@0.2.1",
-    "buffer": "npm:jspm-nodelibs-buffer@0.2.3",
-    "child_process": "npm:jspm-nodelibs-child_process@0.2.1",
-    "constants": "npm:jspm-nodelibs-constants@0.2.1",
-    "crypto": "npm:jspm-nodelibs-crypto@0.2.1",
-    "dgram": "npm:jspm-nodelibs-dgram@0.2.1",
-    "dns": "npm:jspm-nodelibs-dns@0.2.1",
-    "events": "npm:jspm-nodelibs-events@0.2.2",
-    "fs": "npm:jspm-nodelibs-fs@0.2.1",
-    "graceful-fs": "npm:graceful-fs@4.1.11",
-    "http": "npm:jspm-nodelibs-http@0.2.0",
-    "https": "npm:jspm-nodelibs-https@0.2.2",
-    "module": "npm:jspm-nodelibs-module@0.2.1",
-    "net": "npm:jspm-nodelibs-net@0.2.1",
-    "openlayers": "npm:openlayers@4.2.0",
-    "os": "npm:jspm-nodelibs-os@0.2.2",
-    "path": "npm:jspm-nodelibs-path@0.2.3",
-    "querystring": "npm:jspm-nodelibs-querystring@0.2.2",
-    "repl": "npm:jspm-nodelibs-repl@0.2.1",
-    "stream": "npm:jspm-nodelibs-stream@0.2.1",
-    "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",
-    "timers": "npm:jspm-nodelibs-timers@0.2.1",
-    "tls": "npm:jspm-nodelibs-tls@0.2.1",
-    "url": "npm:jspm-nodelibs-url@0.2.1",
-    "util": "npm:jspm-nodelibs-util@0.2.2",
-    "uws": "npm:uws@0.14.5",
-    "vm": "npm:jspm-nodelibs-vm@0.2.1",
-    "zlib": "npm:jspm-nodelibs-zlib@0.2.3",
-    "process": "npm:jspm-nodelibs-process@0.2.1",
-    "proj4": "npm:proj4@2.4.3",
-    "hbs": "github:davis/plugin-hbs@1.2.3",
-    "css": "github:systemjs/plugin-css@0.1.35"
-  },
-  packages: {
+    },
     "npm:openlayers@4.2.0": {
       "map": {
         "marked": "npm:marked@0.3.6",
@@ -1691,6 +1691,12 @@ SystemJS.config({
       "map": {
         "wkt-parser": "npm:wkt-parser@1.2.0",
         "mgrs": "npm:mgrs@1.0.0"
+      }
+    },
+    "npm:yamljs@0.3.0": {
+      "map": {
+        "glob": "npm:glob@7.1.2",
+        "argparse": "npm:argparse@1.0.9"
       }
     }
   }

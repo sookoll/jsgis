@@ -1,0 +1,6 @@
+theme: material
+map:
+  center: [0, 0]
+  zoom: 0
+  projection: EPSG:4326
+layers: []
