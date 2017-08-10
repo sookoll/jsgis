@@ -3,10 +3,10 @@
  *
  * @author Mihkel Oviir
  */
-
+import './jsgis.css!';
 import config from 'jsgis/config/jsgis.yml!text';
 import YML from 'yamljs';
-import Ui from 'jsgis/lib/ui';
+import Theme from 'jsgis/lib/themes/#{theme}/theme';
 import Map from 'jsgis/lib/map';
 import * as Components from 'jsgis/lib/components';
 
@@ -14,10 +14,11 @@ class JsGIS {
   constructor () {
     this.components = {};
     this.config = YML.parse(config);
-    this.setEl(document.querySelector('.jsgis-layout'));
+    this.ui = new Theme();
+    this.setEl(document.querySelector('body'));
   }
   init () {
-    this.ui = Ui;
+
     this.map = new Map();
     this.map.init(this);
     this.initComponents();

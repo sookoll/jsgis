@@ -20,3 +20,12 @@ From https://github.com/mikedfunk/jspm-example
 
     $ npm run build
     $ npm run serve
+
+Configuration
+
+    SystemJS.config({
+      map: {
+        "theme": "src/lib/themes/theme.js"
+      },
+      ...
+    });

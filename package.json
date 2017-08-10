@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clear": "rm -f src/build.jsgis* src/lib/components.js",
-    "dep_compile": "cp jspm_packages/system.js ./src/build.system.js && cp jspm.config.js ./src/build.jspm.config.js && jspm bundle openlayers + proj4 src/build.vendor.js --skip-source-maps -id",
+    "dep_compile": "cat jspm_packages/system.js jspm.config.js > src/build.loader.js && jspm bundle openlayers + proj4 src/build.vendor.js --skip-source-maps -id",
     "components": "bash scripts/build_components.sh src/lib components",
     "compile": "jspm bundle src/main.js - openlayers - proj4 src/build.jsgis.js --skip-source-maps -id",
     "build": "npm run clear && npm run components && npm run compile",
-    "serve": "http-server ./"
+    "serve": "http-server ./src -c-1"
   },
   "repository": {
     "type": "git",

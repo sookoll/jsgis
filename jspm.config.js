@@ -1,4 +1,7 @@
 SystemJS.config({
+  map: {
+    "theme": "src/lib/themes/theme.js"
+  },
   paths: {
     "npm:": "jspm_packages/npm/",
     "github:": "jspm_packages/github/",
@@ -41,6 +44,11 @@ SystemJS.config({
         "jsgis/lib/map.js",
         "jsgis/lib/map.css!github:systemjs/plugin-css@0.1.35/css.js",
         "npm:openlayers@4.2.0/css/ol.css!github:systemjs/plugin-css@0.1.35/css.js",
+        "jsgis/lib/themes/material/theme.js",
+        "jsgis/lib/themes/material/main.hbs!github:davis/plugin-hbs@1.2.3/hbs.js",
+        "npm:systemjs-plugin-babel@0.0.25/babel-helpers/inherits.js",
+        "npm:systemjs-plugin-babel@0.0.25/babel-helpers/possibleConstructorReturn.js",
+        "jsgis/lib/themes/theme.js",
         "npm:yamljs@0.3.0/lib/Yaml.js",
         "npm:yamljs@0.3.0.json",
         "npm:yamljs@0.3.0/lib/Utils.js",
@@ -54,7 +62,8 @@ SystemJS.config({
         "npm:yamljs@0.3.0/lib/Unescaper.js",
         "npm:yamljs@0.3.0/lib/Parser.js",
         "jsgis/config/jsgis.yml!github:systemjs/plugin-text@0.0.11/text.js",
-        "github:systemjs/plugin-text@0.0.11.json"
+        "github:systemjs/plugin-text@0.0.11.json",
+        "jsgis/lib/jsgis.css!github:systemjs/plugin-css@0.1.35/css.js"
       ]
     }
   },

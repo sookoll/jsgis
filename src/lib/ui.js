@@ -4,12 +4,17 @@
  * @author Mihkel Oviir
  */
 
+
 class Ui {
   constructor () {
 
   }
 
-  el (string) {
+  init () {
+
+  }
+
+  $ (string) {
     const template = document.createElement('template');
     template.innerHTML = string;
     return template.content.firstChild;
@@ -17,4 +22,4 @@ class Ui {
 
 }
 
-export default new Ui();
+export default Ui;

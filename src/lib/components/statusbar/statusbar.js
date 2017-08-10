@@ -11,8 +11,9 @@ import button from './toggle_button.hbs!';
 class Statusbar {
   constructor () {
     //this.el = document.createElement('footer');
-    this.el = Ui.el(template());
-    this.toggleBtn = Ui.el(button());
+    const ui = new Ui();
+    this.el = ui.$(template());
+    this.toggleBtn = ui.$(button());
 
     const templateNode = document.createElement('div');
     templateNode.className = 'statusbar-slot';
