@@ -13,6 +13,7 @@ import * as Components from 'jsgis/lib/components';
 class JsGIS {
   constructor () {
     this.components = {};
+    this.config = YML.parse(config);
     this.setEl(document.querySelector('.jsgis-layout'));
   }
   init () {
@@ -20,7 +21,6 @@ class JsGIS {
     this.map = new Map();
     this.map.init(this);
     this.initComponents();
-    console.log(YML.parse(config))
   }
   getConfig () {
     return this.config
