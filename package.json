@@ -1,7 +1,7 @@
 {
   "name": "jsgis",
-  "version": "0.1.0",
-  "description": "JsGIS web-GIS",
+  "version": "1.0.0",
+  "description": "From https://github.com/mikedfunk/jspm-example",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
     "components": "bash scripts/build_components.sh src/lib components",
     "compile": "jspm bundle src/main.js - openlayers - proj4 src/build.jsgis.js --skip-source-maps -id",
     "build": "npm run clear && npm run components && npm run compile",
-    "serve": "jspm-server --port=8081 --no-browser --open=src"
+    "serve": "$ http-server ./src"
   },
   "repository": {
     "type": "git",
@@ -23,12 +23,11 @@
   },
   "homepage": "https://github.com/sookoll/jsgis#readme",
   "devDependencies": {
-    "jspm": "^0.17.0-beta.42",
-    "jspm-server": "^1.0.1"
+    "jspm": "^0.17.0-beta.42"
   },
   "jspm": {
     "name": "jsgis",
-    "main": "jsgis.js",
+    "main": "main.js",
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.35",
       "hbs": "github:davis/plugin-hbs@^1.2.3",

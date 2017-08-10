@@ -4,6 +4,8 @@
  * @author Mihkel Oviir
  */
 
+import config from 'jsgis/config/jsgis.yml!text';
+import YML from 'yamljs';
 import Ui from 'jsgis/lib/ui';
 import Map from 'jsgis/lib/map';
 import * as Components from 'jsgis/lib/components';
@@ -18,6 +20,10 @@ class JsGIS {
     this.map = new Map();
     this.map.init(this);
     this.initComponents();
+    console.log(YML.parse(config))
+  }
+  getConfig () {
+    return this.config
   }
   getMap () {
     return this.map
