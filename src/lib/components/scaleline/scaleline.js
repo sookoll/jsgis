@@ -8,18 +8,22 @@ import ol from 'openlayers';
 import './scaleline.css!';
 
 class Scaleline {
-  constructor() {
+  constructor(jsgis) {
+    this.jsgis = jsgis;
     this.el = document.createElement('div');
     this.el.id = 'scaleline';
   }
-  init(jsgis) {
+  init() {
     console.log('init zoombar')
-    jsgis.getComponent('Statusbar').getElSlot(6).appendChild(this.el);
+    const statusbar = this.jsgis.getComponent('Statusbar');
+    if (statusbar) {
+      statusbar.getElSlot(6).appendChild(this.el);
+    }
 
     const zoomslider = new ol.control.ScaleLine({
-      target: this.el
+      target: statusbar ? this.el : null
     });
-    jsgis.getMap().addControl(zoomslider);
+    this.jsgis.getMap().addControl(zoomslider);
   }
 }
 

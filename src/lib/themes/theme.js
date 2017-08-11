@@ -3,4 +3,4 @@ import YML from 'yamljs';
 
 const conf = YML.parse(config);
 
-export default conf.theme;
+export default conf.theme || 'default';

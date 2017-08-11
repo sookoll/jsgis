@@ -7,7 +7,7 @@
 
 class Ui {
   constructor () {
-
+    this.el = document.body;
   }
 
   init () {
@@ -18,6 +18,14 @@ class Ui {
     const template = document.createElement('template');
     template.innerHTML = string;
     return template.content.firstChild;
+  }
+
+  setMapContainer (el) {
+    this.el.querySelector('div').appendChild(el)
+  }
+
+  getMapContainer () {
+    return this.el.querySelector('div')
   }
 
 }

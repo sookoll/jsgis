@@ -8,19 +8,23 @@ import ol from 'openlayers';
 import './mouseposition.css!';
 
 class MousePosition {
-  constructor() {
+  constructor(jsgis) {
+    this.jsgis = jsgis;
     this.el = document.createElement('div');
     this.el.id = 'mouseposition';
   }
-  init(jsgis) {
+  init() {
     console.log('init mousepos')
-    jsgis.getComponent('Statusbar').getElSlot(1).appendChild(this.el);
+    const statusbar = this.jsgis.getComponent('Statusbar');
+    if (statusbar) {
+      statusbar.getElSlot(1).appendChild(this.el);
+    }
 
     const mousepos = new ol.control.MousePosition({
-      target: this.el,
+      target: statusbar ? this.el : null,
       coordinateFormat: ol.coordinate.createStringXY(5)
     });
-    jsgis.getMap().addControl(mousepos);
+    this.jsgis.getMap().addControl(mousepos);
   }
 }
 

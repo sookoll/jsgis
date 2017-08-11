@@ -3,17 +3,18 @@
  *
  * @author Mihkel Oviir
  */
-import Ui from 'jsgis/lib/ui';
+
 import './statusbar.css!';
-import template from './statusbar.hbs!';
-import button from './toggle_button.hbs!';
 
 class Statusbar {
-  constructor () {
-    //this.el = document.createElement('footer');
-    const ui = new Ui();
-    this.el = ui.$(template());
-    this.toggleBtn = ui.$(button());
+  constructor (jsgis) {
+    this.jsgis = jsgis;
+    if (typeof jsgis.getUi().getStatusBarContainer !== 'function') {
+      // theme do not support statusbar
+      return false;
+    }
+    
+    this.el = jsgis.getUi().getStatusBarContainer();
 
     const templateNode = document.createElement('div');
     templateNode.className = 'statusbar-slot';
@@ -23,10 +24,9 @@ class Statusbar {
       this.el.appendChild(cln);
     })
   }
-  init (jsgis) {
+  init () {
     console.log('init statusbar');
-    jsgis.getEl().querySelector('main').appendChild(this.el);
-    jsgis.getEl().querySelector('main').appendChild(this.toggleBtn);
+
   }
   getEl () {
     return this.el

@@ -18,7 +18,6 @@ class JsGIS {
     this.setEl(document.querySelector('body'));
   }
   init () {
-
     this.map = new Map();
     this.map.init(this);
     this.initComponents();
@@ -40,11 +39,11 @@ class JsGIS {
   }
   initComponents () {
     Object.keys(Components).forEach((name) => {
-      this.components[name] = new Components[name]();
+      this.components[name] = new Components[name](this);
     });
     Object.keys(this.components).forEach((name) => {
       if (typeof this.components[name].init === 'function') {
-        this.components[name].init(this);
+        this.components[name].init();
       }
     })
   }

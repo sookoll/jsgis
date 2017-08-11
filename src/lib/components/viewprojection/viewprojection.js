@@ -10,17 +10,18 @@ import './viewprojection.css!';
 import template from './template.hbs!';
 
 class ViewProjection {
-  constructor() {
+  constructor(jsgis) {
+    this.jsgis = jsgis;
     this.el = document.createElement('div');
     this.el.id = 'viewprojection';
     ol.proj.setProj4(proj4);
   }
-  init(jsgis) {
+  init() {
     console.log('init epsg');
-    this.jsgis = jsgis;
-    const epsg = jsgis.getMap().getMapProjection().getCode().split(':');
+    const epsg = this.jsgis.getMap().getMapProjection().getCode().split(':');
     this.el.innerHTML = template({epsg: epsg[1]});
-    jsgis.getComponent('Statusbar').getElSlot(5).appendChild(this.el);
+    
+    this.jsgis.getComponent('Statusbar').getElSlot(5).appendChild(this.el);
     const btn = this.el.querySelector('button');
     const inp = this.el.querySelector('input');
 

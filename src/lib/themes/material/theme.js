@@ -4,16 +4,28 @@
  * @author Mihkel Oviir
  */
 
+import './material.css!';
 import Ui from 'jsgis/lib/ui';
 import template from './main.hbs!';
 
-class Theme extends Ui {
+class MaterialTheme extends Ui {
   constructor () {
     super();
-    const el = document.body;
-    el.insertBefore(this.$(template()), el.childNodes[0]);
+    this.el.insertBefore(this.$(template()), this.el.childNodes[0]);
+  }
+
+  setMapContainer (el) {
+    this.el.querySelector('.map-container').appendChild(el)
+  }
+
+  getMapContainer () {
+    return this.el.querySelector('.map-container')
+  }
+
+  getStatusBarContainer () {
+    return this.el.querySelector('footer')
   }
 
 }
 
-export default Theme;
+export default MaterialTheme;
